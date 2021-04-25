@@ -1,0 +1,10 @@
+[Unit]
+Description=Geolocation Agent
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/geoclue-2.0/demos/agent
+
+[Install]
+WantedBy=sway-session.target

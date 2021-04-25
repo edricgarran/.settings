@@ -1,0 +1,7 @@
+config/nvim/.netrwhist
+config/nvim/bundle
+config/nvim/spell
+**.pyc
+**.swp
+**.swo
+**/.mypy_cache

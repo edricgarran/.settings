@@ -1,0 +1,12 @@
+set $bemenu-options \
+    -i -n -H 24 -l 20 --fn 'monospace 10' \
+    --tb '#222222' \
+    --tf '#aaaaaa' \
+    --nb '#222222' \
+    --nf '#666666' \
+    --fb '#222222' \
+    --ff '#aaaaaa' \
+    --hb '#333333' \
+    --hf '#eeeeee' \
+    --sb '#222222' \
+    --sf '#cccccc'

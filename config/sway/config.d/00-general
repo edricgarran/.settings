@@ -1,0 +1,5 @@
+set $mod mod4
+
+bar {
+    swaybar_command waybar
+}

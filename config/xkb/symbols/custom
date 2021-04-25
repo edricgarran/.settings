@@ -1,0 +1,19 @@
+partial alphanumeric_keys modifier_keys
+xkb_symbols "custom" {
+	key <TLDE> { [ apostrophe, quotedbl, grave, acute ] };
+	key <AE06> { [ 6, asciicircum, notsign, onequarter ] };
+	key <AE11> { [ minus, underscore, dead_macron, dead_caron ] };
+	key <AD01> { [ q, Q, slash, backslash ] };
+	key <AD02> { [ w, W, question, questiondown ] };
+        key <AD04> { [ r, R, copyright, registered ] };
+        key <AD06> { [ y, Y, yen, yen ] };
+        key <AD09> { [ o, O, oe, OE ] };
+        key <AC01> { [ a, A, ae, AE ] };
+        key <AC09> { [ l, L, lstroke, Lstroke ] };
+	key <AC10> { [ slash, question, masculine, ordfeminine ] };
+	key <AC11> { [ dead_acute, dead_circumflex, dead_grave, dead_tilde ] };
+        key <AB01> { [ z, Z, zabovedot, Zabovedot ] };
+        key <AB03> { [ c, C, cacute, Cacute ] };
+	key <AB09> { [ period, greater, degree ] };
+	key <AB10> { [ semicolon, colon, dead_ogonek, dead_stroke ] };
+};

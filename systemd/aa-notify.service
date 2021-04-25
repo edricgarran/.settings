@@ -1,0 +1,10 @@
+[Unit]
+Description=Notification Daemon
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log
+
+[Install]
+WantedBy=sway-session.target

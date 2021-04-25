@@ -1,0 +1,10 @@
+[color]
+    ui = true
+[user]
+    email = felipe.trzaskowski@gmail.com
+    name = Felipe Trzaskowski
+[pull]
+    rebase = true
+[alias]
+    tree = log --color --all --branches --graph --decorate --oneline
+    sync = !git pull --rebase && git push

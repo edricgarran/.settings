@@ -1,0 +1,10 @@
+[Unit]
+Description=Input Method Editor Daemon
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/nimf
+
+[Install]
+WantedBy=sway-session.target

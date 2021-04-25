@@ -1,0 +1,28 @@
+font pango:sans-serif 8
+output "*" bg #000000 solid_color
+
+hide_edge_borders smart
+default_border pixel 1
+titlebar_padding 5 2
+smart_gaps on
+gaps inner 1
+
+# backgrounds
+set $color-0 #111111
+set $color-1 #222222
+set $color-2 #cc3333
+set $color-3 #333333
+
+# foregrounds
+set $color-4 #666666
+set $color-5 #aaaaaa
+set $color-6 #eeaaaa
+set $color-7 #eeeeee
+
+#                       title                      window
+#                       border   bg       text     split    border
+client.focused          $color-3 $color-3 $color-7 $color-5 $color-4
+client.urgent           $color-2 $color-2 $color-6 $color-2 $color-2
+client.focused_inactive $color-1 $color-1 $color-5 $color-1 $color-1
+client.unfocused        $color-1 $color-0 $color-4 $color-0 $color-0
+client.placeholder      $color-1 $color-0 $color-4 $color-0 $color-0

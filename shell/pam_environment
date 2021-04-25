@@ -1,0 +1,19 @@
+LC_ALL=
+LANG=pt_BR.UTF-8
+LC_TIME=pt_BR.UTF-8
+LC_MESSAGES=C
+
+QT_IM_MODULE=nimf
+GTK_IM_MODULE=nimf
+SDL_IM_MODULE=nimf
+GLFW_IM_MODULE=nimf
+XMODIFIERS=@im=nimf
+
+XDG_CURRENT_DESKTOP=sway
+MOZ_ENABLE_WAYLAND=1
+
+EDITOR=/usr/bin/nvim
+BROWSER=/usr/bin/firefox
+TERMINAL DEFAULT="/usr/bin/footclient -N"
+CHROME_EXECUTABLE=/usr/bin/chromium
+STEAM_DIR=/home/felipe/.var/app/com.valvesoftware.Steam/data/Steam/

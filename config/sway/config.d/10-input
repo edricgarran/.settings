@@ -1,0 +1,98 @@
+input * {
+    xkb_layout "us(intl)+custom"
+    xkb_options "ctrl:nocaps"
+}
+
+focus_follows_mouse no
+
+floating_modifier $mod
+
+bindsym {
+
+    # reload shortcuts
+    $mod+shift+q exit
+    $mod+r reload
+
+    # kill current window
+    $mod+shift+c kill
+
+    # launch shortcuts
+    $mod+return  exec $TERMINAL
+    $mod+c       exec $BROWSER
+    $mod+d       exec bemenu-run -p '' $bemenu-options
+    $mod+shift+v exec ~/.settings/bin/vshot
+    $mod+shift+s exec grim -g "$(slurp)" - | wl-copy
+    print        exec grim - | wl-copy
+
+    # media keys
+    XF86AudioRaiseVolume  exec pactl set-sink-volume 0 +3%
+    XF86AudioLowerVolume  exec pactl set-sink-volume 0 -3%
+    XF86AudioMute         exec pactl set-sink-mute 0 toggle
+    XF86AudioNext         exec playerctl next
+    XF86AudioPlay         exec playerctl play-pause
+    XF86AudioPrev         exec playerctl previous
+    XF86MonBrightnessDown exec brightnessctl set 5%-
+    XF86MonBrightnessUp   exec brightnessctl set +5%
+
+    # window management
+
+    $mod+h focus left
+    $mod+j focus down
+    $mod+k focus up
+    $mod+l focus right
+
+    $mod+shift+h move left
+    $mod+shift+j move down
+    $mod+shift+k move up
+    $mod+shift+l move right
+
+    $mod+mod1+h move workspace to output left
+    $mod+mod1+j move workspace to output down
+    $mod+mod1+k move workspace to output up
+    $mod+mod1+l move workspace to output right
+
+    $mod+f fullscreen
+
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
+
+    $mod+shift+minus move scratchpad
+    $mod+minus scratchpad show
+
+    $mod+shift+space floating toggle
+    $mod+space focus mode_toggle
+
+    $mod+b split h
+    $mod+v split v
+
+    $mod+u focus parent
+    $mod+n focus child
+
+    $mod+1 workspace number 1
+    $mod+2 workspace number 2
+    $mod+3 workspace number 3
+    $mod+4 workspace number 4
+    $mod+5 workspace number 5
+    $mod+6 workspace number 6
+    $mod+7 workspace number 7
+    $mod+8 workspace number 8
+    $mod+9 workspace number 9
+    $mod+0 workspace number 10
+
+    $mod+shift+1 move container to workspace number 1
+    $mod+shift+2 move container to workspace number 2
+    $mod+shift+3 move container to workspace number 3
+    $mod+shift+4 move container to workspace number 4
+    $mod+shift+5 move container to workspace number 5
+    $mod+shift+6 move container to workspace number 6
+    $mod+shift+7 move container to workspace number 7
+    $mod+shift+8 move container to workspace number 8
+    $mod+shift+9 move container to workspace number 9
+    $mod+shift+0 move container to workspace number 10
+
+    # mouse bindings
+    --border button2 kill
+    --whole-window $mod+button4 focus parent
+    --whole-window $mod+button5 focus child
+}

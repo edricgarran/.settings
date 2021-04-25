@@ -1,0 +1,6 @@
+# Global settings
+
+Host *
+    ServerAliveInterval 5
+    ServerAliveCountMax 10000
+    Compression yes

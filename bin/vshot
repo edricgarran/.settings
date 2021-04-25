@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+PID="/tmp/vshot.pid"
+OUT="/tmp/vshot.mp4"
+
+if test -f "${PID}" && kill -s 2 $(<"${PID}"); then
+    exit
+else
+    rm -f "${PID}"
+    geometry="$(slurp)"
+    wf-recorder -t -g "${geometry}" -f $OUT &
+    echo ${!} > "${PID}"
+    wait
+    wl-copy -t text/uri-list <<< "file://${OUT}"
+    notify-send 'done capture'
+fi

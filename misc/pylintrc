@@ -1,0 +1,19 @@
+[MESSAGES CONTROL]
+disable=C,R,
+    locally-disabled,
+    attribute-defined-outside-init,
+    unexpected-keyword-arg,
+    protected-access,
+    unused-argument,
+    arguments-differ,
+    broad-except,
+    bad-builtin,
+    fixme
+
+[TYPECHECK]
+ignored-modules = ujson, lxml
+
+[SIMILARITIES]
+ignore-docstrings = yes
+ignore-comments = yes
+ignore-imports = yes

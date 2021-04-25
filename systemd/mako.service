@@ -1,0 +1,10 @@
+[Unit]
+Description=Notification Daemon
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mako --default-timeout 5000
+
+[Install]
+WantedBy=sway-session.target

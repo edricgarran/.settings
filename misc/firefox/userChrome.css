@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box !important;
+}
+
+/* reset default styles */
+html,
+browser,
+#nav-bar,
+#navigator-toolbox,
+#urlbar,
+#urlbar-background,
+#urlbar-container,
+#search-container,
+#urlbar-input-container,
+#urlbar[breakout] > #urlbar-input-container,
+#urlbar-background,
+#urlbar-results,
+.urlbarView,
+.urlbarView-row,
+.urlbarView-body-inner {
+  background: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+  outline: none !important;
+  border: none !important;
+  padding-inline: 0 !important;
+  padding-block: 0 !important;
+  padding: 0 !important;
+}
+
+#urlbar,
+#urlbar-background,
+#urlbar-container,
+#search-container,
+#urlbar-input-container,
+#urlbar[breakout] > #urlbar-input-container {
+  margin: 0 !important;
+}
+
+html {
+  font-family: monospace !important;
+  font-size: 12px !important;
+}
+
+/* uniform transparent window background */
+#main-window {
+  background-color: #333333 !important;
+}
+
+/* remove tabs and menus */
+#titlebar {
+  visibility: collapse !important;
+}
+
+/* compact urlbar */
+:root {
+  --global-bar-height: 24px;
+  --urlbar-toolbar-height: var(--global-bar-height) !important;
+  --toolbarbutton-inner-padding: 0 !important;
+  --toolbarbutton-border-radius: 0 !important;
+}
+#urlbar {
+  --urlbar-height: var(--global-bar-height) !important;
+  min-height: var(--global-bar-height) !important;
+}
+#urlbar-container {
+  --urlbar-container-height: var(--global-bar-height) !important;
+}
+toolbar {
+  min-height: 0 !important;
+  padding: 0 !important;
+  height: var(--global-bar-height) !important;
+}
+.toolbarbutton-icon {
+  width: var(--global-bar-height) !important;
+  height: var(--global-bar-height) !important;
+  padding: 4px !important;
+}
+#identity-box {
+  padding: 0 4px !important;
+  margin: 0 !important;
+}
+#tracking-protection-icon-container,
+#permissions-granted-icon,
+#back-button,
+#forward-button {
+  visibility: collapse !important;
+}
+
+/* those are useless */
+#window-controls,
+#urlbar-background,
+#urlbar-go-button,
+#page-action-buttons {
+  display: none !important;
+}
+
+/* declutter autocomplete box */
+.search-one-offs {
+  display: none !important;
+}
+
+/* fix firefox's horrible url field effect */
+#urlbar-results {
+  width: 100% !important;
+}
+#urlbar[breakout] {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+#urlbar[breakout] > #urlbar-input-container {
+  height: var(--urlbar-toolbar-height) !important;
+}
+.urlbarView,
+.urlbarView-row,
+.urlbarView-no-wrap,
+.urlbarView-row-inner {
+  margin-block-start: 0 !important;
+  margin-inline: 0 !important;
+  padding-block: 0 !important;
+  border-radius: 0 !important;
+  max-width: unset !important;
+  overflow: unset !important;
+  padding: 0 !important;
+}
+.urlbarView-row-inner {
+  height: var(--global-bar-height) !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+.urlbarView-url {
+  position: relative !important;
+  text-align: right !important;
+  font-size: 1rem !important;
+  padding-inline-end: 4px !important;
+}
+.urlbarView-no-wrap {
+  flex: 1 !important;
+  height: 100% !important;
+  align-items: center !important;
+  font-size: 1rem !important;
+}
+.urlbarView-favicon {
+  display: inline-block !important;
+  width: var(--global-bar-height) !important;
+  height: var(--global-bar-height) !important;
+  padding: 4px !important;
+  margin: 0 !important;
+  filter: grayscale(100%) contrast(150%) !important;
+}
+.urlbarView {
+  width: 100vw !important;
+  margin: 0 !important;
+}
+
+/* restyle the autocomplete box */
+#urlbar-results {
+  position: relative;
+  background-color: rgba(51, 51, 51, 0.9) !important;
+}
+:root {
+  --autocomplete-popup-highlight-background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ) !important;
+}
+
+/* cleanup status bar */
+#statuspanel-label {
+  border: none !important;
+  background-color: rgba(35, 35, 35, 0.9) !important;
+}

@@ -1,0 +1,2 @@
+let g:multi_cursor_exit_from_normal_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
