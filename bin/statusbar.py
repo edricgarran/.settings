@@ -18,23 +18,24 @@ def notify(text, title=""):
 
 def wid_label(text, **kwargs):
     return {
-        "separator": False,
         "full_text": text,
+        "separator": False,
+        "color": "#c0c0c0",
         **kwargs,
     }
 
 
 def wid_value(text, **kwargs):
     return {
-        "separator": False,
         "full_text": text,
+        "separator": False,
         "background": "#202020",
         "border": "#303030",
         **kwargs,
     }
 
 
-def vertical_percent(value, bars=" ▁▂▃▄▅▆▇█"):
+def visual_percent(value, bars=" ▁▂▃▄▅▆▇█"):
     return bars[int(value / 100.0 * (len(bars) - 1))]
 
 
@@ -48,7 +49,7 @@ def clock(out, id):
 def cpu(out, id):
     while True:
         cpus = psutil.cpu_percent(interval=0.1, percpu=True)
-        cpus = (vertical_percent(cpu) for cpu in sorted(cpus))
+        cpus = (visual_percent(cpu) for cpu in sorted(cpus))
         out.put((id, [wid_label("".join(cpus))]))
 
 
@@ -59,7 +60,7 @@ def memory(out, id):
             (
                 id,
                 [
-                    wid_label("MEM"),
+                    wid_label(""),
                     wid_value(
                         f"{vm.percent:0.0f}%",
                         min_width="100%",
@@ -75,15 +76,17 @@ def battery(out, id):
     while True:
         bat = psutil.sensors_battery()
         if bat is None:
-            return
-        plug_indicator = "+" if bat.power_plugged else "-"
+            break
+
+        plug_indicator = "" if bat.power_plugged else ""
+        icon = visual_percent(bat.percent, "")
         out.put(
             (
                 id,
                 [
-                    wid_label("BAT"),
+                    wid_label(f"{plug_indicator}{icon}"),
                     wid_value(
-                        f"{bat.percent:0.0f}%{plug_indicator}",
+                        f"{bat.percent:0.0f}%",
                         min_width="100%",
                         align="center",
                     ),
@@ -99,22 +102,21 @@ def volume(out, id):
         while True:
             widgets = []
             for sink in pulse.sink_list():
-                if sink.mute:
-                    value = "MUTE"
-                else:
-                    value = f"{sink.volume.value_flat * 100:0.0f}%"
+                volume = sink.volume.value_flat * 100.0
+                icon = "" if sink.mute else visual_percent(volume, "")
                 widgets.append(
-                    wid_label("VOL", name="volume", instance=sink.name),
+                    wid_label(icon, name="volume", instance=sink.name),
                 )
-                widgets.append(
-                    wid_value(
-                        value,
-                        name="volume",
-                        instance=sink.name,
-                        min_width="100%",
-                        align="center",
-                    ),
-                )
+                if not sink.mute:
+                    widgets.append(
+                        wid_value(
+                            f"{sink.volume.value_flat * 100:0.0f}%",
+                            name="volume",
+                            instance=sink.name,
+                            min_width="100%",
+                            align="center",
+                        ),
+                    )
             out.put((id, widgets))
             time.sleep(0.1)
 
@@ -128,6 +130,8 @@ def volume_handle(event):
         with pulsectl.Pulse("statusbar") as pulse:
             sink = pulse.get_sink_by_name(event["instance"])
             pulse.volume_change_all_chans(sink, 0.05)
+            if sink.volume.value_flat > 1.0:
+                pulse.volume_set_all_chans(sink, 1.0)
     if event["button"] == 5:
         with pulsectl.Pulse("statusbar") as pulse:
             sink = pulse.get_sink_by_name(event["instance"])
@@ -140,10 +144,24 @@ class Manager:
         self.outputs = Queue()
         self.event_handlers = {}
 
+    def block_supervisor(self, block, id):
+        while True:
+            try:
+                block(self.outputs, id)
+            except Exception:
+                self.outputs.put((id, ()))
+                time.sleep(1)
+            else:
+                break
+
     def spawn(self, block):
         id = len(self.state)
         self.state.append([])
-        Thread(target=block, args=(self.outputs, id), daemon=True).start()
+        Thread(
+            target=self.block_supervisor,
+            args=(block, id),
+            daemon=True,
+        ).start()
 
     def on_event(self, event, handler):
         self.event_handlers[event] = handler
@@ -160,8 +178,8 @@ class Manager:
                     continue
                 try:
                     handler(event)
-                except Exception as e:
-                    notify(str(e), "Error")
+                except Exception:
+                    continue
 
         Thread(target=run_input, daemon=True).start()
 
@@ -184,7 +202,6 @@ def main():
     manager.spawn(memory)
     manager.spawn(battery)
 
-    manager.on_event("volume", volume_handle)
     manager.on_event("volume", volume_handle)
     manager.spawn(volume)
 
