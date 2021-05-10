@@ -26,3 +26,14 @@ client.urgent           $color-2 $color-2 $color-6 $color-2 $color-2
 client.focused_inactive $color-1 $color-1 $color-5 $color-1 $color-1
 client.unfocused        $color-1 $color-0 $color-4 $color-0 $color-0
 client.placeholder      $color-1 $color-0 $color-4 $color-0 $color-0
+
+set $ws1 1:一
+set $ws2 2:二
+set $ws3 3:三
+set $ws4 4:四
+set $ws5 5:五
+set $ws6 6:六
+set $ws7 7:七
+set $ws8 8:八
+set $ws9 9:牛
+set $ws10 10:十

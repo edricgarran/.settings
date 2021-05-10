@@ -31,3 +31,8 @@ pipewire-pulse
 pavucontrol
 pamixer
 bluez
+
+# python
+psutil
+pulsectl
+notify2

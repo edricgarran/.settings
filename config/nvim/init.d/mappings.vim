@@ -5,7 +5,7 @@ nnoremap <silent> <esc> :nohl<cr><esc>
 " go to last mark
 nmap <silent> <leader>b <C-O>
 " save from insert mode
-inoremap :w <esc>:w
+" inoremap :w <esc>:w
 " correct regexp escaping
 nnoremap / /\v
 

@@ -1,5 +1,9 @@
 set $mod mod4
 
 bar {
-    swaybar_command waybar
+    status_command python ~/.settings/bin/statusbar.py
+    font pango:monospace 13px
+    position bottom
+    strip_workspace_numbers yes
+    height 24
 }

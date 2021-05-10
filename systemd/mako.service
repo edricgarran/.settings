@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/mako --default-timeout 5000
+ExecStart=/usr/bin/mako --default-timeout 5000 --anchor bottom-right --height 100
 
 [Install]
 WantedBy=sway-session.target
