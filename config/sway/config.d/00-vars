@@ -1,0 +1,37 @@
+set $mod mod4
+
+set $ws1   1:一
+set $ws2   2:二
+set $ws3   3:三
+set $ws4   4:四
+set $ws5   5:五
+set $ws6   6:六
+set $ws7   7:七
+set $ws8   8:八
+set $ws9   9:九
+set $ws10 10:十
+
+# backgrounds
+set $color-0 #111111
+set $color-1 #222222
+set $color-2 #cc3333
+set $color-3 #333333
+
+# foregrounds
+set $color-4 #666666
+set $color-5 #aaaaaa
+set $color-6 #eeaaaa
+set $color-7 #eeeeee
+
+set $bemenu-options \
+    -i -n -H 24 -l 20 --fn 'monospace 10' \
+    --tb '#222222' \
+    --tf '#aaaaaa' \
+    --nb '#222222' \
+    --nf '#666666' \
+    --fb '#222222' \
+    --ff '#aaaaaa' \
+    --hb '#333333' \
+    --hf '#eeeeee' \
+    --sb '#222222' \
+    --sf '#cccccc'

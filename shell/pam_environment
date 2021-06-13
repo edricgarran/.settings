@@ -5,8 +5,6 @@ LC_MESSAGES=C
 
 QT_IM_MODULE=nimf
 GTK_IM_MODULE=nimf
-SDL_IM_MODULE=nimf
-GLFW_IM_MODULE=nimf
 XMODIFIERS=@im=nimf
 
 XDG_CURRENT_DESKTOP=sway
@@ -16,4 +14,3 @@ EDITOR=/usr/bin/nvim
 BROWSER=/usr/bin/firefox
 TERMINAL DEFAULT="/usr/bin/footclient -N"
 CHROME_EXECUTABLE=/usr/bin/chromium
-STEAM_DIR=/home/felipe/.var/app/com.valvesoftware.Steam/data/Steam/

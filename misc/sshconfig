@@ -4,3 +4,50 @@ Host *
     ServerAliveInterval 5
     ServerAliveCountMax 10000
     Compression yes
+# Orelha
+
+Host orelha
+    HostName 54.232.103.48
+    User ubuntu
+    IdentityFile ~/company/mucca/default.pem
+
+# Shop-BR
+
+Host shop2-front
+    HostName 54.207.48.57
+    User ec2-user
+    IdentityFile ~/company/muccashop2/shop2-front.pem
+
+Host shop2-robots
+    HostName 54.207.18.163
+    User ec2-user
+    IdentityFile ~/company/muccashop2/shop2-front.pem
+
+Host shop2-downloadmedia
+    HostName 54.207.86.180
+    User ec2-user
+    IdentityFile ~/company/muccashop2/shop2-front.pem
+
+Host shop2-redis
+    HostName 54.232.198.207
+    User ubuntu
+    IdentityFile ~/company/mucca/default.pem
+
+Host shop2-solr
+    HostName 52.67.29.68
+    User ubuntu
+    IdentityFile ~/company/mucca/default.pem
+
+# Shop3
+
+Host shop3-stage
+    HostName ssh.stage.mucca.co
+    User ec2-user
+    IdentityFile ~/company/mucca/default.pem
+
+
+Host gaming
+    HostName ssh.stage.mucca.co
+    User ec2-user
+    IdentityFile ~/company/mucca/default.pem
+    ProxyJump shop2-robots

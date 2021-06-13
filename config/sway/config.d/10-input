@@ -10,7 +10,7 @@ floating_modifier $mod
 bindsym {
 
     # reload shortcuts
-    $mod+shift+q exit
+    $mod+shift+q exec pkill sway-session.sh; exit
     $mod+r reload
 
     # kill current window

@@ -1,8 +1,6 @@
-set $mod mod4
-
 bar {
     status_command python ~/.settings/bin/statusbar.py
-    font pango:monospace 13px
+    font pango:monospace 14px
     position bottom
     strip_workspace_numbers yes
     height 24

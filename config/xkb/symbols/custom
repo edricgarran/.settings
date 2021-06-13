@@ -10,10 +10,10 @@ xkb_symbols "custom" {
         key <AD09> { [ o, O, oe, OE ] };
         key <AC01> { [ a, A, ae, AE ] };
         key <AC09> { [ l, L, lstroke, Lstroke ] };
-	key <AC10> { [ slash, question, masculine, ordfeminine ] };
+	key <AB10> { [ slash, question, masculine, ordfeminine ] };
 	key <AC11> { [ dead_acute, dead_circumflex, dead_grave, dead_tilde ] };
         key <AB01> { [ z, Z, zabovedot, Zabovedot ] };
         key <AB03> { [ c, C, cacute, Cacute ] };
 	key <AB09> { [ period, greater, degree ] };
-	key <AB10> { [ semicolon, colon, dead_ogonek, dead_stroke ] };
+	key <AC10> { [ semicolon, colon, dead_ogonek, dead_stroke ] };
 };

@@ -18,5 +18,9 @@ CONFIG=${HOME}/.config
 mkdir -p ${CONFIG}
 ln -fs ${ROOT}/config/* ${CONFIG}
 
+sudo ln -fs ${ROOT}/misc/99-layout.hwdb /etc/udev/hwdb.d/99-layout.hwdb
+sudo systemd-hwdb update
+sudo udevadm trigger
+
 systemctl --user enable --now ${ROOT}/systemd/*
 systemctl --user daemon-reload

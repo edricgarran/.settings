@@ -86,20 +86,18 @@ def volume(out, id):
         for sink in pulse.sink_list():
             volume = 100.0 * sink.volume.value_flat
             if sink.mute:
-                widgets.append(
-                    wid_label("", name="volume", instance=sink.name),
-                )
+                icon = ""
             else:
                 icon = visual_percent(volume, "")
-                widgets.append(
-                    wid_label(
-                        f"{icon} {volume:0.0f}%",
-                        name="volume",
-                        instance=sink.name,
-                        min_width="x 100%",
-                        align="left",
-                    ),
-                )
+            widgets.append(
+                wid_label(
+                    f"{icon} {volume:0.0f}%",
+                    name="volume",
+                    instance=sink.name,
+                    min_width="x 100%",
+                    align="left",
+                ),
+            )
         out.put((id, widgets))
 
     def on_event(event):

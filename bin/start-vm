@@ -1,0 +1,10 @@
+#!/bin/sh
+set -xeuo pipefail
+
+(
+    swaymsg exit || true
+    systemctl --user stop sway-session.target
+    systemctl --user stop pipewire.service
+
+    sudo virsh start $1
+)
