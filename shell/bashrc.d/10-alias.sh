@@ -15,3 +15,13 @@ post() {
 spawn() {
     footclient -N 2>/dev/null & disown
 }
+
+copy() {
+    if [ -n "$*" ]; then
+        IFS='\n' echo "$*"
+    else
+        cat
+    fi | xargs readlink -f \
+       | awk '{ print "file://" $0 }' \
+       | wl-copy -t text/uri-list
+}

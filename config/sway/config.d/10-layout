@@ -1,3 +1,2 @@
 assign [instance="Steam"] workspace $ws10
 assign [app_id="Telegram_Desktop$"] workspace $ws4
-for_window [app_id=firefox] move to workspace $ws1; focus child; layout tabbed

@@ -11,16 +11,15 @@ ln -fs ${ROOT}/misc/Xdefaults ${HOME}/.Xdefaults
 ln -fs ${ROOT}/misc/gitconfig ${HOME}/.gitconfig
 
 # this is not a link because this file is altered with other stuff later
-mkdir ${HOME}/.ssh
-cp ${ROOT}/misc/sshconfig > ${HOME}/.ssh/config
+if [ ! -f ${HOME}/.ssh/config ]; then
+    mkdir -p ${HOME}/.ssh
+    cp ${ROOT}/misc/sshconfig > ${HOME}/.ssh/config
+fi
 
 CONFIG=${HOME}/.config
 mkdir -p ${CONFIG}
 ln -fs ${ROOT}/config/* ${CONFIG}
 
-sudo ln -fs ${ROOT}/misc/99-layout.hwdb /etc/udev/hwdb.d/99-layout.hwdb
+sudo ln -fs ${ROOT}/misc/keyboard/layout.hwdb /etc/udev/hwdb.d/99-layout.hwdb
 sudo systemd-hwdb update
 sudo udevadm trigger
-
-systemctl --user enable --now ${ROOT}/systemd/*
-systemctl --user daemon-reload

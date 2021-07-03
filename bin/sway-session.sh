@@ -18,13 +18,13 @@ service() {
 }
 
 service foot --server
-
 service mako --default-timeout 5000 --anchor bottom-right
+service swayfocus 0.8
 
-service swayidle -w \
-    before-sleep 'lock.sh' \
-    timeout 540  'lock.sh' \
-    timeout 600  'swaymsg "output * dpms off"' \
-    resume       'swaymsg "output * dpms on"'
+# service swayidle -w \
+#     before-sleep 'lock.sh' \
+#     timeout 540  'lock.sh' \
+#     timeout 600  'swaymsg "output * dpms off"' \
+#     resume       'swaymsg "output * dpms on"'
 
 wait
