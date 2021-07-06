@@ -20,6 +20,6 @@ CONFIG=${HOME}/.config
 mkdir -p ${CONFIG}
 ln -fs ${ROOT}/config/* ${CONFIG}
 
-sudo ln -fs ${ROOT}/misc/keyboard/layout.hwdb /etc/udev/hwdb.d/99-layout.hwdb
-sudo systemd-hwdb update
-sudo udevadm trigger
+mkdir -p ${HOME}/.local/share/icons
+ln -fs ${ROOT}/misc/icons/* ${HOME}/.local/share/icons
+ln -fs ${HOME}/.local/share/icons ${HOME}/.icons
