@@ -1,0 +1,4 @@
+BasedOnStyle: webkit
+IndentWidth: 4
+AlignAfterOpenBracket: false
+ContinuationIndentWidth: 4
